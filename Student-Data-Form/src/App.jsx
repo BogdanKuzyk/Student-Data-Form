@@ -1,7 +1,12 @@
 import "./App.css";
+import DataForm from "./components/DataForm";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <DataForm />
+    </>
+  );
 }
 
 export default App;
