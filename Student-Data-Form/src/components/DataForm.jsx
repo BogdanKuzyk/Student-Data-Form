@@ -27,7 +27,9 @@ const DataForm = () => {
       email: email,
     };
 
-    console.log(studentData);
+    setFirstName("");
+    setLastName("");
+    setEmail("");
   };
 
   return (
@@ -35,15 +37,23 @@ const DataForm = () => {
       <div>
         <div>
           <label>First Name</label>
-          <input type="text" onChange={firstNameHandler}></input>
+          <input
+            type="text"
+            value={firstName}
+            onChange={firstNameHandler}
+          ></input>
         </div>
         <div>
           <label>Last Name</label>
-          <input type="text" onChange={lastNameHandler}></input>
+          <input
+            type="text"
+            value={lastName}
+            onChange={lastNameHandler}
+          ></input>
         </div>
         <div>
           <label>Email</label>
-          <input type="text" onChange={emailHandler}></input>
+          <input type="text" value={email} onChange={emailHandler}></input>
         </div>
       </div>
       <div>
