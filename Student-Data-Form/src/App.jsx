@@ -1,23 +1,21 @@
 import "./App.css";
 import DataForm from "./components/DataForm";
 import StudentData from "./components/StudentData";
+import { useState } from "react";
+
+const NEW_STUDENT = [];
 
 function App() {
-  const newStudent = [];
+  const [students, setStudents] = useState(NEW_STUDENT);
 
   const addStudenthandler = (student) => {
-    const studentData = {
-      ...student,
-      id: 1,
-    };
-
-    console.log(studentData);
+    setStudents([student, ...students]);
   };
 
   return (
     <div>
       <DataForm onaddStudent={addStudenthandler} />
-      <StudentData addStudent={newStudent} />
+      <StudentData newStudent={students} />
     </div>
   );
 }
