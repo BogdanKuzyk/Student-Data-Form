@@ -1,7 +1,7 @@
 import "./DataForm.css";
 import { useState } from "react";
 
-const DataForm = () => {
+const DataForm = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +26,8 @@ const DataForm = () => {
       lastName: lastName,
       email: email,
     };
+
+    props.onaddStudent(studentData);
 
     setFirstName("");
     setLastName("");
