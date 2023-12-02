@@ -5,33 +5,60 @@ const DataForm = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const firstNameHandler = (event) => {
-    setFirstName(event.target.value);
-  };
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
 
-  const lastNameHandler = (event) => {
-    setLastName(event.target.value);
-  };
+  const validateForm = () => {
+    let isValid = true;
 
-  const emailHandler = (event) => {
-    setEmail(event.target.value);
+    if (firstName.length < 3) {
+      setFirstNameError("Invalid name");
+      isValid = false;
+    } else {
+      setFirstNameError("");
+    }
+
+    if (lastName.length < 3) {
+      setLastNameError("Invalid last name");
+      isValid = false;
+    } else {
+      setLastNameError("");
+    }
+
+    if (!email.includes("@")) {
+      setEmailError("Invalid email address");
+      isValid = false;
+    } else {
+      setEmailError("");
+    }
+
+    return isValid;
   };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
-    const studentData = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-    };
+    const isValid = validateForm();
 
-    props.onaddStudent(studentData);
+    if (isValid) {
+      const studentData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+      };
 
-    setFirstName("");
-    setLastName("");
-    setEmail("");
+      props.onaddStudent(studentData);
+
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setSubmitted(false);
+    } else {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -42,20 +69,27 @@ const DataForm = (props) => {
           <input
             type="text"
             value={firstName}
-            onChange={firstNameHandler}
+            onChange={(e) => setFirstName(e.target.value)}
           ></input>
+          {submitted && firstNameError && <p>{firstNameError}</p>}
         </div>
         <div>
           <label>Last Name</label>
           <input
             type="text"
             value={lastName}
-            onChange={lastNameHandler}
+            onChange={(e) => setLastName(e.target.value)}
           ></input>
+          {submitted && lastNameError && <p>{lastNameError}</p>}
         </div>
         <div>
           <label>Email</label>
-          <input type="text" value={email} onChange={emailHandler}></input>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+          {submitted && emailError && <p>{emailError}</p>}
         </div>
       </div>
       <div>
