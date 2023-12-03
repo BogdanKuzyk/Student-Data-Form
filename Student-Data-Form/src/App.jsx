@@ -9,13 +9,13 @@ function App() {
   const [students, setStudents] = useState(NEW_STUDENT);
 
   const addStudenthandler = (student) => {
-    setStudents([student, ...students]);
+    setStudents([student]);
   };
 
   return (
-    <div>
+    <div className="content-wrapper">
       <DataForm onaddStudent={addStudenthandler} />
-      <StudentData newStudent={students} />
+      <StudentData newStudent={students[0]} />
     </div>
   );
 }
