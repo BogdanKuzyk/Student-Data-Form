@@ -9,7 +9,19 @@
 
 label {
   font-weight: bold;
-  display: block;
+  display: inline;
+}
+
+.email-label {
+  margin-right: 42px;
+}
+
+.last-name-label {
+  margin-right: 10px;
+}
+
+.first-name-label {
+  margin-right: 8px;
 }
 
 input {
@@ -41,5 +53,5 @@ button:hover {
   color: red;
   height: 16px;
   font-size: 14px;
-  margin: 0px;
+  margin: 0px 0px 0px 85px;
 }

@@ -65,7 +65,7 @@ const DataForm = (props) => {
     <form onSubmit={formSubmitHandler}>
       <div className="form__controls">
         <div className="form__controls__control">
-          <label>First Name</label>
+          <label className="first-name-label">First Name</label>
           <input
             type="text"
             value={firstName}
@@ -77,7 +77,7 @@ const DataForm = (props) => {
           {!firstNameError && <div className="error-placeholder" />}
         </div>
         <div className="form__controls__control">
-          <label>Last Name</label>
+          <label className="last-name-label">Last Name</label>
           <input
             type="text"
             value={lastName}
@@ -89,7 +89,7 @@ const DataForm = (props) => {
           {!lastNameError && <div className="error-placeholder" />}
         </div>
         <div className="form__controls__control">
-          <label>Email</label>
+          <label className="email-label">Email</label>
           <input
             type="text"
             value={email}
