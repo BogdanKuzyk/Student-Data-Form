@@ -63,37 +63,46 @@ const DataForm = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div>
-        <div>
+      <div className="form__controls">
+        <div className="form__controls__control">
           <label>First Name</label>
           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           ></input>
-          {submitted && firstNameError && <p>{firstNameError}</p>}
+          {submitted && firstNameError && (
+            <p className="error-message">{firstNameError}</p>
+          )}
+          {!firstNameError && <div className="error-placeholder" />}
         </div>
-        <div>
+        <div className="form__controls__control">
           <label>Last Name</label>
           <input
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           ></input>
-          {submitted && lastNameError && <p>{lastNameError}</p>}
+          {submitted && lastNameError && (
+            <p className="error-message">{lastNameError}</p>
+          )}
+          {!lastNameError && <div className="error-placeholder" />}
         </div>
-        <div>
+        <div className="form__controls__control">
           <label>Email</label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          {submitted && emailError && <p>{emailError}</p>}
+          {submitted && emailError && (
+            <p className="error-message">{emailError}</p>
+          )}
+          {!emailError && <div className="error-placeholder" />}
         </div>
-      </div>
-      <div>
-        <button type="submit">Submit</button>
+        <div className="form__controls__control">
+          <button type="submit">Submit</button>
+        </div>
       </div>
     </form>
   );
