@@ -14,15 +14,15 @@ const DataForm = (props) => {
   const validateForm = () => {
     let isValid = true;
 
-    if (firstName.length < 3) {
-      setFirstNameError("Invalid name");
+    if (firstName.length <= 1) {
+      setFirstNameError("This field is required");
       isValid = false;
     } else {
       setFirstNameError("");
     }
 
-    if (lastName.length < 3) {
-      setLastNameError("Invalid last name");
+    if (lastName.length <= 1) {
+      setLastNameError("This field is required");
       isValid = false;
     } else {
       setLastNameError("");
