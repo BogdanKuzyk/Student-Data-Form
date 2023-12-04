@@ -13,9 +13,14 @@ function App() {
   };
 
   return (
-    <div className="content-wrapper">
-      <DataForm onaddStudent={addStudenthandler} />
-      <StudentData newStudent={students[0]} />
+    <div>
+      <div className="heading">
+        <h1>Student data form</h1>
+      </div>
+      <div className="content-wrapper">
+        <DataForm onaddStudent={addStudenthandler} />
+        <StudentData newStudent={students[0]} />
+      </div>
     </div>
   );
 }
